@@ -1,0 +1,13 @@
+{% regroup dates by year as dates_by_year %}
+<div class="p-3">
+    <!-- <h4 class="font-italic">Archives</h4> -->
+    <h4 class="font-italic">月別アーカイブ</h4>
+        {% for month in dates_by_year %}
+            <a href="{% url 'siteapp:year' month.grouper %}">{{ month.grouper }}年</a>
+            <ul class="list^unstyled">
+                {% for d in month.list %}
+                <p>&emsp;<a href="{% url 'siteapp:month' month.grouper d.month %}">{{ d|date:'F' }}</a></p>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+</div>

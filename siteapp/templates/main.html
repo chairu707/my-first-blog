@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load app_tags %}
+{% load static %}
+
+<!-- もしリンクとかを貼るなら下記のフォーマットを調整すること-->
+
+{% block twittercard %}
+
+ <meta name="twitter:card" content="summary" />
+ <meta name="twitter:site" content="" />
+ <meta property="og:url" content="" />
+ <meta property="og:title" content="" />
+ <meta property="og:description" content="" />
+ <meta property="og:image" content="" />
+
+{% endblock twittercard %}
+
+
+{% block content %}
+
+<div class="blog-post">
+  <h2>{{ heading }}</h2>
+        <div class="row">
+                <div class="col-sm-4 mb-2">
+			<!--
+                        <a class="btn btn-outline-primary btn-block" href="" target="_blank" rel="nofollow">
+                        Twitter
+                        </a>
+			-->
+                </div>
+ <div class="col-sm-4 mb-2">
+			<!--
+                        <a class="btn btn-outline-primary btn-block" href="" target="_blank" rel="nofollow">
+                        FaceBook
+                        </a>
+			-->
+                </div>
+                <div class="col-sm-4 mb-2">
+			<!--
+                        <a class="btn btn-outline-primary btn-block" href="" target="_blank" rel="nofollow">
+                        はてなブックマーク
+                        </a>
+			-->
+                </div>
+        </div>
+
+  <hr>
+  {% for post in object_list|slice:"5" %}
+    <h3>
+      <a href = "{% url 'siteapp:detail' post.pk %}">{{ post.title }}</a>
+    </h3>
+    <p class="blog-post-meta">{{ post.published }}</p>
+    
+	<!--
+	<div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="{{ post.youtube }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+      <p>※動画が再生されない場合は、「YouTubeで見る」をクリックして下さい。</p>
+	-->
+
+      {{ post.summary | safe }}<!--ここを修正したよsummer note-->
+    <br />
+
+
+    
+    <a href = "{% url 'siteapp:detail' post.pk %}"></a>
+    
+
+    <br /><br />
+    <hr>
+  {% endfor %}
+ </div>
+
+<nav id="page" class="blog-pagination">
+      {% if page_obj.has_previous %}
+        <a id="prev" class="btn btn-outline-primary" href="?{% url_replace request 'page' page_obj.previous_page_number %}" title="新しい投稿へ">新しい投>稿</a>
+      {% endif %}
+
+  <span id="page-info">Page:{{ page_obj.number }} / {{ page_obj.paginator.num_pages }}</span>
+      {% if page_obj.has_next %}
+        <a id="next" class="btn btn-outline-primary" href="?{% url_replace request 'page' page_obj.next_page_number %}" title="古い投稿へ">古い投稿</a>   
+      {% endif %}
+</nav>
+
+{% endblock content %}
+  

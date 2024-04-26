@@ -1,0 +1,11 @@
+/* summernote_custom.css */
+
+/* Summernoteのウィンドウ全体の幅を変更する */
+.note-editor {
+    width: 800px; /* 好みの幅を指定 */
+}
+
+/* 他の要素の幅も必要に応じて調整する */
+.note-editable {
+    width: 100%; /* エディタの幅をウィンドウに合わせる */
+}

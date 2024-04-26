@@ -1,0 +1,10 @@
+<div class="nav-scroller py-1 mb-2">
+  <nav class="nav d-flex ">
+    <a class="p-2 text-muted" href="{% url 'siteapp:main' %}">ホーム</a>
+    {% for category in category_list %}
+    <a class="p-2 text-muted" href= "{% url 'siteapp:category' category.pk %}">{{ category }}</a>
+    {% endfor %}
+  </nav>
+</div>
+
+

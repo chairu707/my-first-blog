@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load app_tags  %}
+{% load static %}
+
+
+{% block twittercard %}
+
+ <meta name="twitter:card" content="summary" />
+ <meta name="twitter:site" content="" />
+ <meta property="og:url" content="" />
+ <meta property="og:title" content="" />
+ <meta property="og:description" content="" />
+ <meta property="og:image" content="" />
+
+{% endblock twittercard %}
+
+{% block content %}
+
+<div class="blog-post">
+  <h3>{{ post.title }}</h3>
+  <div class="row">
+                <div class="col-sm-4 mb-2">
+			<!--
+                        <a class="btn btn-outline-primary btn-block" href="" target="_blank" rel="nofollow">
+                        Twitter
+                        </a>
+			-->
+                </div>
+                <div class="col-sm-4 mb-2">
+			<!--
+                        <a class="btn btn-outline-primary btn-block" href="" target="_blank" rel="nofollow">
+                        FaceBook
+                        </a>
+			-->
+                </div>
+                <div class="col-sm-4 mb-2">
+			<!--
+                        <a class="btn btn-outline-primary btn-block" href="" target="_blank" rel="nofollow">
+                        はてなブックマーク
+                        </a>
+			-->
+                </div>
+        </div>
+  <hr>
+  <p class="blog-post-meta">{{ post.published }}</p>
+    
+	<!--
+	<div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="{{ post.youtube }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <p>※動画が再生されない場合は、「YouTubeで見る」をクリックして下さい。</p>
+    -->
+	
+	{{ post.text | linebreaksbr | urlize2 }}
+    <br /><br />
+</div>
+{% endblock content %}
+	
