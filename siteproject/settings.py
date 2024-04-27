@@ -29,7 +29,7 @@ DEBUG = False
 #kaihatu
 #ALLOWED_HOSTS = []
 #koukai
-ALLOWED_HOSTS = ['localhost', '.pythonanywhere.com', 'Miekazu.pythonanywhere.com']
+ALLOWED_HOSTS = ['localhost', '.pythonanywhere.com', 'miekazu.pythonanywhere.com']
 
 
 
