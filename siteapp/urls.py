@@ -13,4 +13,5 @@ urlpatterns = [
     path('category/<int:pk>/', views.PostCategoryList.as_view(), name='category'),
     path('archive/<int:year>/', views.PostYearList.as_view(), name='year'),
     path('archive/<int:year>/<int:month>/', views.PostMonthList.as_view(), name='month'),
+    path('google9689b400addd4ddc.html/', views.google_search_console, name='google_search_console'),
 ]
