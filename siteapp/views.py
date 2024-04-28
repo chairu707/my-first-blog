@@ -85,4 +85,6 @@ class PostMonthList(ArchiveListMixin, generic.MonthArchiveView):
         context['heading'] = '{}年{}月の投稿'.format(self.kwargs['year'], self.kwargs['month'])
         return context
 
-
+#Googleconsole youni ireru
+def google_search_console(request):
+    return render(request, 'google9689b400addd4ddc.html')
